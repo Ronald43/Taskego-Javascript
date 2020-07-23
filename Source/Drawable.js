@@ -1,0 +1,6 @@
+class Drawable {
+
+  Draw( container ) {
+
+  }
+}

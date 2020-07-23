@@ -1,0 +1,245 @@
+body{
+    margin:0px;
+    padding: 0px;
+    transition: ease-in;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+    -webkit-user-select: none;
+
+}
+
+ul{
+    padding: 0px;
+    margin: 0px;
+}
+
+ul li{
+    font-size: 12px;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    border: solid rgb(121, 141, 230) 1px;
+    padding: 12px 100px 12px 40px;
+    font-size: auto;
+    transition: 0.3s;
+    border-radius: 25px;
+    margin-top: 5px;
+}
+
+ul li:nth-child(odd){
+    border: solid orangered 1px;
+}
+
+ul li:hover{
+    border-width: 2px;
+}
+
+.checked{
+  background: rgba(0, 255, 106, 0.623);
+  text-decoration: line-through;
+}
+
+.checked:hover{
+  background: rgb(0, 255, 106);
+}
+
+/* 
+.checked, .checked:nth-child(odd){
+    text-decoration: line-through;
+    color: lightgray;
+    background: rgb(119, 119, 119);
+}
+
+.checked:hover{
+    text-decoration: line-through;
+    color: lightgray;
+    background: #777;
+} */
+
+.checked::before{
+    content: '';
+    position: absolute;
+    border-color: rgb(0, 255, 106);
+    border-style: solid;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    top: 5px;
+    left: 15px;
+    height: 25px;
+    width: 10px;
+}
+
+.close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+    padding: 16px 16px 16px 16px;
+}
+
+.close:hover{
+    background: #f11;
+}
+
+.textInput{
+    float:left;
+    margin: 0;
+    padding: 10px;
+    font-size: 16px;
+    width: 70%;
+    border-radius: 0px;
+    border: none;
+    transition: 0.3s;
+}
+
+
+.textInput:hover{
+    width: 75%;
+}
+
+.btn{
+    float:left;
+    margin: 0px;
+    padding: 10px;
+    color: white;
+    font-size: 15.5px;
+    text-align: center;
+    background: lightgray;
+    border-radius: 0px;
+    width: 25%;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    background: darkgray;
+}
+
+/* Begins Menu */
+.menu{
+    position: relative;
+    padding: 20px;
+    color : white;
+    background: orangered;
+}
+
+.menu::after{
+    clear: both;
+    display: table;
+    content: '';
+}
+
+.menu h1{
+    display: inline-block;
+    margin : 0px;
+    margin-top: 20px;
+    padding: 0px;       
+}
+
+.menu-controls{
+    margin-top: 0px;
+    top: 0px;
+    padding: 10px;
+}
+
+.menu-input, .load-menu-input{
+    border: none;
+    font-size: 16px;
+    width: 10vw;
+    margin : 0px;
+    padding: 20px;
+    transition: 0.5s;
+}
+
+.menu-btn{
+    margin : 0px;
+    font-size: 16px;
+    padding: 19.5px;
+    background: lightgray;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.menu-btn:hover{
+    background: darkgray;
+}
+
+.menu-item{
+  position: relative;
+  padding: 12px;
+  background: #eee;
+  margin: 5px 20px;
+  font-weight: 100;
+  text-align: left;
+}
+
+.menu-item:nth-child(odd){
+  background: #dda;
+}
+
+.menu-item:hover{
+  background:darkgray;
+}
+
+/* Ends Menu */
+
+/* Begins Card */
+.card{
+    max-width: 350px;
+    position: relative;
+    display: inline-table;
+    margin: 5px;
+}
+
+.card-header{
+    max-width: 350px;
+    border-left: solid tomato 2px;
+    border-right: solid tomato 2px;
+    border-top : solid tomato 2px;
+    text-align: center;
+    color: white;
+    background:orangered;
+    padding:10px 30px;
+    transition: 0.5s;
+
+}
+
+.card-header:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.card-body{
+    border-left: solid gray 2px;
+    border-right: solid gray 2px;
+    border-bottom : solid gray 2px;
+    min-height: 300px;
+    max-width: 450px;
+    padding: 20px;
+    overflow: auto;
+}
+
+.card-close{
+    color: black;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 10px;
+    margin: 0;
+    cursor: pointer;
+    border-radius: 150px;
+}
+
+.card-close:hover{
+    background: white;
+}
+
+.card-close:active{
+    color:red;
+}
+/* End of Card */
