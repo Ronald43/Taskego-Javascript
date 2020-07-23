@@ -54,18 +54,20 @@ class Board extends Drawable {
     
   }
 
-  // Adds this board to the app state if it is not already there
-  // The saves the state of the app
+  // Adds this board instance to the app state if it is not already there
+  // Then saves the state of the app
   Save()
   {
-    if(AppState.boards.find(x => x.id == this.id) == undefined)
+
+    // Check if the board is not alrady in the array of boards
+    if(AppState.GetBoards().find(x => x.id == this.id) == undefined)
     {
-      AppState.boards.push(this)
+      AppState.GetBoards().push(this)
       AppState.Save()
       return;
     }
 
-    AppState.boards[this.id] = this;
+    AppState.GetBoards()[this.id] = this;
     AppState.Save()
 
   }
