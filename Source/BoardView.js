@@ -1,39 +1,47 @@
+// A class responsible for drawing the currently loaded board
 class BoardView {
 
   static board = new Board(-1)
 
+  // Load the page and the board currenlty being edited
   static LoadView() {
 
     AppState.Load()
     this.board = AppState.GetCurrentBoard()
-    this.DrawContent()
+    this.DrawElements()
     this.SetupControls()
     
   }
 
+  // Reload the page
   static ReloadView() {
     content.innerHTML = ""
     this.LoadView()
   }
 
+  // Setup all the controls/buttons and their events
   static SetupControls() {
 
     var cardNameField = document.getElementById("card-name-field")
     var addCardBtn = document.getElementById("add-card-btn")
 
     addCardBtn.onclick = () => {
-      var id = this.board.cards.length
-      var name = cardNameField.value
-      var card = new Card(id, name, [])
-
-      this.board.Add(card)
-      this.ReloadView()
-
-      cardNameField.value = ""
+      this.CreateNewCard(cardNameField.value)
+      cardNameField = ""
     }
   }
 
-  static DrawContent() {
+  // Creates a new card on the board
+  static CreateNewCard(name)
+  {
+    var id = this.board.cards.length
+    var card = new Card(id, name, [])
+    this.board.Add(card)
+    this.ReloadView()
+  }
+
+  // Draws the page
+  static DrawElements() {
     //Get elements
     var title = document.getElementById("title")
     title.innerText = "Taskego - " + this.board.name;
