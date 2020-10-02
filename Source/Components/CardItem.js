@@ -1,8 +1,7 @@
 //Base class for all card items
-class CardItem extends Drawable {
+class CardItem {
 
   constructor(id, name) {
-    super()
     this.id = id;
     this.name = name;
     this.isChecked = false

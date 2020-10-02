@@ -42,7 +42,7 @@ class BoardView {
 
   // Draws the page
   static DrawElements() {
-    //Get elements
+    //Get the DOM elements
     var title = document.getElementById("title")
     title.innerText = "Taskego - " + this.board.name;
 
@@ -53,6 +53,7 @@ class BoardView {
     });
 
   }
+  
 }
 
 BoardView.LoadView()

@@ -1,7 +1,6 @@
-class Card extends Drawable {
+class Card {
 
   constructor(id = -1, name, items = [new CardItem(-1, "")]) {
-    super();
 
     //Empty the array if it is the default parameter array
     if (items != null) {
@@ -18,9 +17,10 @@ class Card extends Drawable {
 
   }
 
+  // Used as enum of card elements
   static DataTemplate =
   {
-    "cardElement": null,
+    "mainDiv": null,
     "header": null,
     "body": null,
     "closebtn": null,
@@ -37,9 +37,9 @@ class Card extends Drawable {
 
   RenderElements(container) {
 
-    var cardElement = document.createElement('div')
-    cardElement.className = 'card'
-    cardElement.id = "card" + this.id
+    var mainDiv = document.createElement('div')
+    mainDiv.className = 'card'
+    mainDiv.id = "card" + this.id
 
     var header = document.createElement('div')
     header.className = 'card-header'
@@ -71,13 +71,14 @@ class Card extends Drawable {
 
     body.appendChild(itemList)
 
-    cardElement.appendChild(header)
-    cardElement.appendChild(body)
+    mainDiv.appendChild(header)
+    mainDiv.appendChild(body)
 
-    container.appendChild(cardElement)
+    container.appendChild(mainDiv)
 
+    //Return the created elements as formated a DataTemplate
     return {
-      "cardElement": cardElement,
+      "mainDiv": mainDiv,
       "header": header,
       "body": body,
       "closebtn": closebtn,
@@ -89,34 +90,35 @@ class Card extends Drawable {
 
   }
 
-  SetupEvents(elements = Card.DataTemplate, board) {
+  // cardTemplate defaulted to DataTemplate for better intelisence
+  SetupEvents(cardTemplate = Card.DataTemplate, board) {
     var isBoardValid = board.id != -1
 
     this.items.forEach(item => {
-      item.Draw(elements.itemList, this)
+      item.Draw(cardTemplate.itemList, this)
     });
 
-    elements.title.ondblclick = (ev) => {
-      this.EditTitle(elements.title)
+    cardTemplate.title.ondblclick = (ev) => {
+      this.EditTitle(cardTemplate.title)
     }
 
-    elements.cardElement.ondragover = (ev) => {
+    cardTemplate.mainDiv.ondragover = (ev) => {
       ev.preventDefault()
     }
 
-    elements.cardElement.ondrop = (ev) => {
-      this.Drop(ev,elements.itemList)
+    cardTemplate.mainDiv.ondrop = (ev) => {
+      this.Drop(ev,cardTemplate.itemList)
     }
-
-    elements.closebtn.onclick = () => {
+    
+    cardTemplate.closebtn.onclick = () => {
       if (isBoardValid == true) {
         board.Delete(this.id)
-        elements.cardElement.remove()
+        cardTemplate.mainDiv.remove()
       }
     }
 
-    elements.addBtn.onclick = () => {
-      this.AddItem(elements.itemList,elements.textInput)
+    cardTemplate.addBtn.onclick = () => {
+      this.AddItem(cardTemplate.itemList,cardTemplate.textInput)
     }
 
   }

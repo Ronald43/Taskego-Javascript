@@ -1,6 +1,0 @@
-class Drawable {
-
-  Draw( container ) {
-
-  }
-}

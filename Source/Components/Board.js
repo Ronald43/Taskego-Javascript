@@ -1,8 +1,7 @@
-class Board extends Drawable {
+class Board {
 
   // Default values used so types can be known
   constructor(id = -1, name = "", cards = [new Card(-1,"","1")]) {
-    super()
     
     //Empty the array if it is the default parameter array
     if (cards != null) {
