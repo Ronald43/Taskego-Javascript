@@ -1,5 +1,6 @@
 
-// A utility class used mostly by other classes to modify and access the state of the app 
+// A static class representing the state of the app 
+// used mostly by other classes to modify and acces the "state" of this app 
 class AppState
 {
 
