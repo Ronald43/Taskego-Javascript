@@ -31,7 +31,7 @@ class AppState
   }
 
   // An array of all the boards the user owns 
-  // NOTE: initialize the array with a "null" board so code completion works (I can't work without)
+  // NOTE: initializing the array with a "null" board so code completion works (I can't work without)
   static boards = [new Board(-1,"null",[])];
 
   // Get the array of all the boards the user owns
